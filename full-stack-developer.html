@@ -1,430 +1,275 @@
 <!DOCTYPE html>
-<html lang="en" class="dark"> <head>
+<html lang="en" class=""> <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Full Stack Developer CV | CV.GetProjects.org</title>
-    <meta name="description" content="A free HTML full stack developer CV template, meticulously styled to match a modern, coder-centric aesthetic. Features line numbers, dark theme, and clear layout.">
-    <meta name="keywords" content="full stack developer cv, coder resume, html cv template, free resume, software engineer cv, dark theme cv, line numbers cv, getprojects, cv.getprojects.org">
-    <meta name="author" content="GetProjects.org">
-    <link rel="canonical" href="https://cv.getprojects.org/">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Custom CV & Resume Templates | cv.getprojects.org</title>
+    <meta name="description" content="Discover professionally designed, role-specific CV and resume templates. Create a standout CV for full-stack development, graphic design, marketing, and more.">
+    <meta name="keywords" content="cv templates, resume templates, job-specific cv, full-stack developer cv, graphic designer resume, marketing cv, professional resume, cv builder, getprojects.org">
+    <meta name="author" content="cv.getprojects.org team">
+    <link rel="canonical" href="https://cv.getprojects.org">
+
+    <meta property="og:title" content="Custom CV & Resume Templates | cv.getprojects.org">
+    <meta property="og:description" content="Discover professionally designed, role-specific CV and resume templates. Create a standout CV for full-stack development, graphic design, marketing, and more.">
+    <meta property="og:image" content="https://cv.getprojects.org/og-image.jpg"> <meta property="og:url" content="https://cv.getprojects.org">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Custom CV & Resume Templates | cv.getprojects.org">
+    <meta name="twitter:description" content="Discover professionally designed, role-specific CV and resume templates. Create a standout CV for full-stack development, graphic design, marketing, and more.">
+    <meta name="twitter:image" content="https://cv.getprojects.org/twitter-card-image.jpg"> <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Base styles */
         body {
             font-family: 'Inter', sans-serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            /* Default light mode background */
+            background-color: #f8fafc; /* Tailwind gray-50 */
+            color: #1f2937; /* Tailwind gray-800 */
             transition: background-color 0.3s ease, color 0.3s ease;
-            font-weight: 400;
         }
-        .fira-code { 
-            font-family: 'Fira Code', monospace;
-            font-weight: 500;
-        }
-
-        /* Theme Variables - Inspired by the reference image */
-        :root {
-            /* Light Theme (Secondary) */
-            --bg-color-light: #eef0f2; /* Lighter gray background */
-            --text-color-light: #212529; /* Darker text for readability */
-            --card-bg-color-light: #ffffff; /* White card */
-            --line-gutter-bg-light: #f0f2f4;
-            --line-gutter-text-light: #adb5bd;
-            --accent-color-light: #007bff; /* Standard bootstrap blue */
-            --accent-hover-light: #0056b3;
-            --section-title-text-light: #212529;
-            --section-title-bracket-light: var(--accent-color-light);
-            --section-line-light: #ced4da; /* Lighter border */
-            --skill-tag-bg-light: #e9ecef;
-            --skill-tag-text-light: #495057;
-            --timeline-dot-bg-light: var(--accent-color-light);
-            --timeline-line-bg-light: #ced4da;
-            --header-footer-bg-light: #ffffff;
-            --header-footer-text-light: #343a40;
-            --shadow-light: rgba(0, 0, 0, 0.1);
-
-            /* Dark Theme (Primary - matching reference) */
-            --bg-color-dark: #0a0c0f; /* Even darker background */
-            --text-color-dark: #adbac7; /* Slightly adjusted for better contrast on very dark bg */
-            --card-bg-color-dark: #161a20; /* Main content area background */
-            --line-gutter-bg-dark: #0d1117; /* Gutter background, same as page bg or slightly different */
-            --line-gutter-text-dark: #414a56; /* Dimmed line numbers */
-            --accent-color-dark: #388bfd; /* Adjusted blue from reference */
-            --accent-hover-dark: #58a6ff;
-            --section-title-text-dark: #c9d1d9; /* Main text color for section titles */
-            --section-title-bracket-dark: var(--accent-color-dark); /* Accent for brackets */
-            --section-line-dark: #2a3038; /* More subtle line */
-            --skill-tag-bg-dark: #1c2128;
-            --skill-tag-text-dark: #adbac7;
-            --timeline-dot-bg-dark: var(--accent-color-dark);
-            --timeline-line-bg-dark: #2a3038;
-            --header-footer-bg-dark: #161a20;
-            --header-footer-text-dark: #adbac7;
-            --shadow-dark: rgba(0, 0, 0, 0.5); /* Darker shadow for depth */
+        /* Dark mode body styles */
+        .dark body {
+            background-color: #111827; /* Tailwind gray-900 */
+            color: #f3f4f6; /* Tailwind gray-100 */
         }
 
-        /* Apply Dark Theme by default */
-        html.dark body { background-color: var(--bg-color-dark); color: var(--text-color-dark); }
-        html.dark .cv-outer-wrapper { background-color: var(--card-bg-color-dark); } /* Main card background */
-        html.dark .line-number-gutter { background-color: var(--line-gutter-bg-dark); color: var(--line-gutter-text-dark); }
-        html.dark .section-title-text { color: var(--section-title-text-dark); }
-        html.dark .section-title-bracket { color: var(--section-title-bracket-dark); }
-        html.dark .section-title-line { border-color: var(--section-line-dark); }
-        html.dark a { color: var(--accent-color-dark); }
-        html.dark a:hover { color: var(--accent-hover-dark); }
-        html.dark .skill-tag { background-color: var(--skill-tag-bg-dark); color: var(--skill-tag-text-dark); border: 1px solid var(--section-line-dark);}
-        html.dark .timeline-item::before { background-color: var(--timeline-dot-bg-dark); }
-        html.dark .timeline-item:not(:last-child)::after { background-color: var(--timeline-line-bg-dark); }
-        html.dark .main-nav { background-color: var(--header-footer-bg-dark); color: var(--header-footer-text-dark); box-shadow: 0 1px 0px var(--section-line-dark); }
-        html.dark .main-footer { background-color: var(--header-footer-bg-dark); color: var(--header-footer-text-dark); border-top: 1px solid var(--section-line-dark); }
-        html.dark .cv-page-header .cv-brand { color: var(--accent-color-dark); }
-        html.dark .cv-page-header .name { color: #e6edf3; } /* Brighter white for name */
-        html.dark .cv-page-header .title { color: var(--text-color-dark); opacity: 0.7; }
-        html.dark .sidebar-section-title { color: var(--accent-color-dark); } /* Using accent for sidebar titles */
-        html.dark .sidebar-skill-category { color: #e6edf3; } /* Brighter for category */
-        html.dark .sidebar-skill-item { color: var(--text-color-dark); opacity: 0.85; }
-
-
-        /* Apply Light Theme when .dark class is NOT present */
-        html:not(.dark) body { background-color: var(--bg-color-light); color: var(--text-color-light); }
-        html:not(.dark) .cv-outer-wrapper { background-color: var(--card-bg-color-light); }
-        html:not(.dark) .line-number-gutter { background-color: var(--line-gutter-bg-light); color: var(--line-gutter-text-light); }
-        html:not(.dark) .section-title-text { color: var(--section-title-text-light); }
-        html:not(.dark) .section-title-bracket { color: var(--accent-color-light); }
-        html:not(.dark) .section-title-line { border-color: var(--section-line-light); }
-        html:not(.dark) a { color: var(--accent-color-light); }
-        html:not(.dark) a:hover { color: var(--accent-hover-light); }
-        html:not(.dark) .skill-tag { background-color: var(--skill-tag-bg-light); color: var(--skill-tag-text-light); border: 1px solid transparent;}
-        html:not(.dark) .timeline-item::before { background-color: var(--timeline-dot-bg-light); }
-        html:not(.dark) .timeline-item:not(:last-child)::after { background-color: var(--timeline-line-bg-light); }
-        html:not(.dark) .main-nav { background-color: var(--header-footer-bg-light); color: var(--header-footer-text-light); box-shadow: 0 2px 4px var(--shadow-light); }
-        html:not(.dark) .main-footer { background-color: var(--header-footer-bg-light); color: var(--header-footer-text-light); border-top: 1px solid var(--section-line-light); }
-        html:not(.dark) .cv-page-header .cv-brand { color: var(--accent-color-light); }
-        html:not(.dark) .cv-page-header .name { color: var(--text-color-light); }
-        html:not(.dark) .cv-page-header .title { color: var(--text-color-light); opacity: 0.8; }
-        html:not(.dark) .sidebar-section-title { color: var(--accent-color-light); }
-        html:not(.dark) .sidebar-skill-category { color: var(--text-color-light); }
-        html:not(.dark) .sidebar-skill-item { color: var(--text-color-light); opacity: 0.85; }
-
-
-        /* General Reusable Styles */
-        .icon { width: 1.1rem; height: 1.1rem; margin-right: 0.6rem; display: inline-block; vertical-align: middle; opacity: 0.7; }
-        .section-title-container { margin-bottom: 1.5rem; margin-top: 2.2rem; }
-        .section-title-container:first-child { margin-top: 0; }
-        .section-title { /* For </section_name> style */
-            font-size: 1.6rem; /* Increased size */
-            font-weight: 600; /* Bolder Fira Code */
-            letter-spacing: 0.5px;
+        .skill-button {
+            transition: all 0.2s ease-in-out;
         }
-        .section-title-line { border-bottom-width: 1px; margin-top: 0.4rem; opacity: 0.7; }
-
-        .timeline-item { position: relative; padding-left: 2.2rem; margin-bottom: 1.8rem; }
-        .timeline-item::before { content: ''; position: absolute; left: 0.3rem; top: 0.45rem; width: 0.9rem; height: 0.9rem; border-radius: 9999px; }
-        .timeline-item:not(:last-child)::after { content: ''; position: absolute; left: calc(0.3rem + 0.45rem - 1px); top: calc(0.45rem + 0.9rem + 0.2rem); bottom: -1.8rem; width: 2px; }
-        
-        .skill-tag { padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; display: inline-block; margin: 0.2rem; }
-        .sidebar-section-title { font-size: 1.15rem; font-weight: 600; margin-bottom: 0.8rem; }
-        .sidebar-skill-category { font-weight: 600; margin-top: 1rem; margin-bottom: 0.3rem; font-size:0.9rem; opacity: 0.9;}
-        .sidebar-skill-item { font-size: 0.85rem; line-height: 1.65; }
-
-        /* Line Number Gutter */
-        .cv-page-wrapper { display: flex; }
-        .line-number-gutter {
-            width: 40px; /* Adjust width as needed */
-            padding: 1.5rem 0; /* Match top/bottom padding of main content */
-            text-align: right;
-            font-size: 0.75rem; /* text-xs */
-            line-height: 1.6; /* Match content line height */
-            user-select: none; /* Prevent selection */
-            flex-shrink: 0; /* Prevent shrinking */
+        .skill-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
-        .line-number-gutter span { display: block; padding-right: 10px; }
+        .dark .skill-button:hover {
+            box-shadow: 0 4px 12px rgba(255,255,255,0.1);
+        }
 
+        .hero-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .dark .card-hover {
+            background-color: #1f2937; /* Tailwind gray-800 */
+            border: 1px solid #374151; /* Tailwind gray-700 */
+        }
+        .dark .card-hover:hover {
+             box-shadow: 0 10px 20px rgba(255,255,255,0.05);
+        }
+        .dark .text-gray-800 { color: #e5e7eb; /* gray-200 */ }
+        /* Adjusted default text color for menu for better contrast in light mode */
+        .dark .text-gray-700 { color: #d1d5db; /* gray-300, was text-gray-600 before */ }
+        .dark .text-gray-600 { color: #9ca3af; /* gray-400 */ }
+        .dark .bg-gray-50 { background-color: #1f2937; /* gray-800 */ }
+        .dark .bg-indigo-50 { background-color: #312e81; /* indigo-900 */ }
+        .dark header { background-color: #1f2937; /* gray-800 */ border-bottom: 1px solid #374151; }
+        .dark footer { background-color: #030712; /* gray-950 */ }
 
-        /* Print specific styles */
-        @media print {
-            html, body { background-color: #fff !important; color: #000 !important; }
-            html.dark body { /* Override dark theme for print */
-                --bg-color-dark: #ffffff; --text-color-dark: #000000; --card-bg-color-dark: #ffffff;
-                --accent-color-dark: #0000ee; --section-title-text-dark: #000000;
-                --section-title-bracket-dark: #000000; --section-line-dark: #cccccc;
-                --skill-tag-bg-dark: #eeeeee; --skill-tag-text-dark: #000000;
-                --timeline-dot-bg-dark: #000000; --timeline-line-bg-dark: #aaaaaa;
-            }
-            body { font-size: 9pt; margin: 0; padding: 0; font-family: 'Times New Roman', Times, serif; }
-            body, .fira-code { font-family: 'Times New Roman', Times, serif; }
-            .no-print { display: none !important; }
-            .cv-page-wrapper { display: block !important; } /* Stack line numbers and content for print */
-            .line-number-gutter { display: none !important; } /* Hide line numbers in print */
-
-            .cv-container-wrapper { padding: 1.5cm 1.5cm 1cm 1.5cm !important; }
-            .cv-outer-wrapper { max-width: 100% !important; box-shadow: none !important; margin: 0 !important; padding: 0 !important; }
-            
-            .md\:grid-cols-layout { display: block !important; } /* Disable main grid for print */
-            .cv-main-content-area, .cv-sidebar-area { width: 100% !important; padding: 0 !important; }
-
-            .page-break-before { page-break-before: always; }
-            .page-break-inside-avoid { page-break-inside: avoid; }
-
-            .section-title-container { margin-top: 1.2rem; margin-bottom: 0.8rem; }
-            .section-title { font-size: 1.2rem; font-weight: bold; }
-            .section-title-bracket, .section-title-text { color: #000 !important; }
-            .section-title-line { border-color: #000 !important; }
-            
-            a { color: #0000ee !important; text-decoration: underline !important; }
-            .skill-tag { border: 1px solid #ccc; padding: 0.1rem 0.4rem; font-size: 0.7rem; background-color: #eee !important; color: #000 !important; }
-            
-            .cv-page-header .cv-brand { color: #000 !important; font-size: 1.3rem !important; }
-            .cv-page-header .name { font-size: 1.8rem !important; color: #000 !important; }
-            .cv-page-header .title { font-size: 1.1rem !important; color: #000 !important; opacity: 1; }
-            .sidebar-section-title { color: #000 !important; font-size: 1rem !important; font-weight: bold; }
-            .sidebar-skill-category { color: #000 !important; font-size: 0.85rem !important; font-weight: bold; }
-            .sidebar-skill-item { color: #000 !important; font-size: 0.8rem !important; opacity: 1; }
-
-            .timeline-item::before { background-color: #000 !important; }
-            .timeline-item:not(:last-child)::after { background-color: #aaa !important; }
-            ul { padding-left: 1.2rem; }
-            .contact-item svg.icon { display: none; }
-            .contact-item a, .contact-item span { margin-left: 0 !important; }
+        /* Theme toggle button icon styles */
+        .theme-toggle-icon {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
         }
     </style>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9704521076577901"
-     crossorigin="anonymous"></script>
-
 </head>
-<body class="leading-relaxed text-base">
+<body class="text-gray-800">
 
-    <nav class="main-nav sticky top-0 z-50 no-print">
-        <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
-            <a href="https://cv.getprojects.org/" class="text-xl font-bold">CV Home</a>
-            <div class="space-x-4">
-                <a href="https://getprojects.org/" target="_blank" class="hover:opacity-80">Main Home</a>
-                <a href="https://getprojects.org/contact" target="_blank" class="hover:opacity-80">Contact</a>
-                <a href="https://getprojects.org/about" target="_blank" class="hover:opacity-80">About</a>
-            </div>
-            <div class="flex items-center space-x-3">
-                <button id="themeToggle" title="Toggle Theme" class="p-2 rounded-md hover:opacity-70">
-                    <svg id="themeIconSun" class="icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m8.66-12.66l-.707.707M5.05 18.95l-.707.707M21 12h-1M4 12H3m15.66 6.95l-.707-.707M6.46 5.05l-.707-.707"></path><circle cx="12" cy="12" r="5"></circle></svg>
-                    <svg id="themeIconMoon" class="icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="https://cv.getprojects.org" class="text-2xl font-bold text-indigo-600 dark:text-indigo-400">cv.getprojects.org</a>
+            <nav class="space-x-2 sm:space-x-4 flex items-center">
+                <a href="https://getprojects.org" class="text-gray-700 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400">Main Home</a>
+                <a href="https://getprojects.org/about" class="text-gray-700 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400">About</a>
+                <a href="https://getprojects.org/contact" class="text-gray-700 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400">Contact</a>
+                <button id="theme-toggle" type="button" class="text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
+                    <svg id="theme-toggle-dark-icon" class="hidden theme-toggle-icon" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                    <svg id="theme-toggle-light-icon" class="hidden theme-toggle-icon" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
                 </button>
-            </div>
+            </nav>
         </div>
-    </nav>
+    </header>
 
-    <div class="cv-container-wrapper container mx-auto max-w-6xl my-8">
-        <div class="cv-page-wrapper">
-            <div id="lineNumberGutter" class="line-number-gutter no-print">
-                </div>
+    <section class="hero-gradient text-white py-20 md:py-32">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">Find Your Perfect CV, Uniquely Crafted.</h1>
+            <p class="text-lg md:text-xl mb-10 max-w-3xl mx-auto">
+                Stop using generic templates. Our CVs are designed to reflect your specific skills and the job you want, from Full-Stack Developers to Creative Graphic Designers.
+            </p>
+            <a href="#cv-showcase" class="bg-white text-indigo-600 font-semibold py-3 px-8 rounded-lg shadow-lg hover:bg-gray-100 transition duration-300 text-lg dark:text-indigo-700 dark:hover:bg-gray-200">
+                Explore Templates
+            </a>
+        </div>
+    </section>
 
-            <div class="cv-outer-wrapper flex-grow shadow-2xl p-8 sm:p-12 lg:p-16">
-
-                <header class="cv-page-header mb-12 text-center sm:text-left">
-                    <div class="fira-code text-3xl sm:text-4xl font-bold cv-brand mb-2">&lt; CV /&gt;</div>
-                    <h1 class="name text-4xl sm:text-5xl font-bold tracking-tight leading-tight">Get Projects</h1> <p class="title text-xl sm:text-2xl font-normal mt-1 fira-code">( Professional_Title: Full Stack Developer )</p> </header>
-
-                <section class="summary-section mb-12">
-                    <div class="section-title-container">
-                        <h2 class="section-title fira-code"><span class="section-title-bracket">&lt;/</span><span class="section-title-text">summary</span><span class="section-title-bracket">&gt;</span></h2>
-                        <div class="section-title-line"></div>
-                    </div>
-                    <p class="text-sm sm:text-base leading-relaxed opacity-90">
-                        Dynamic and innovative Full Stack Developer with over 5 years of dedicated experience in architecting, developing, and managing cutting-edge web applications and enterprise-level software solutions. Deeply committed to the open-source philosophy, actively contributing to and leading community initiatives via getprojects.org. Adept at transforming complex user requirements and technical specifications into high-performing, scalable, and intuitive products.
+    <section id="cv-showcase" class="py-16 md:py-24 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-800">CVs That Speak Your Language</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+                <div class="bg-white p-8 rounded-xl shadow-lg card-hover">
+                    <img src="https://placehold.co/600x400/7F9CF5/FFFFFF?text=Developer+CV" alt="Full-Stack Developer CV Preview" class="w-full h-48 object-cover rounded-lg mb-6" onerror="this.src='https://placehold.co/600x400/CCCCCC/FFFFFF?text=Image+Not+Found'">
+                    <h3 class="text-2xl font-semibold mb-3 text-indigo-700 dark:text-indigo-400">For the Full-Stack Developer</h3>
+                    <p class="text-gray-600 mb-4">
+                        A CV that showcases your technical prowess, projects, and stack. Clean, structured, and code-inspired.
                     </p>
-                </section>
+                    <a href="cv/full-stack-developer.html" class="text-indigo-600 hover:text-indigo-800 dark:text-indigo-400 dark:hover:text-indigo-300 font-medium inline-flex items-center">
+                        View Developer Templates &rarr;
+                    </a>
+                </div>
 
-                <div class="md:grid md:grid-cols-5 md:gap-x-10 lg:gap-x-12">
-                    <main class="cv-main-content-area md:col-span-3 space-y-12">
-                        <section class="experience-section">
-                            <div class="section-title-container">
-                                <h2 class="section-title fira-code"><span class="section-title-bracket">&lt;/</span><span class="section-title-text">work_experience</span><span class="section-title-bracket">&gt;</span></h2>
-                                <div class="section-title-line"></div>
-                            </div>
-                            <div class="space-y-8">
-                                <div class="timeline-item page-break-inside-avoid">
-                                    <h3 class="text-lg sm:text-xl font-semibold">Senior Developer & Community Lead</h3>
-                                    <p class="text-sm font-medium opacity-80">GetProjects.org  <span class="fira-code text-xs opacity-70">| Jan 2020 – Present</span></p>
-                                    <ul class="list-disc list-inside mt-2 text-sm space-y-1.5 leading-relaxed opacity-90 pl-1">
-                                        <li>Led architecture of getprojects.org, focusing on scalability for 10k+ users.</li>
-                                        <li>Engineered project submission & review systems (Node.js, React, PostgreSQL).</li>
-                                        <li>Managed a distributed team of 5+ volunteer developers (Agile, JIRA, GitHub).</li>
-                                        <li>Developed Python recommendation engine, boosting downloads by 25%.</li>
-                                        <li>Established CI/CD pipelines (GitHub Actions, Docker), reducing deployment times.</li>
-                                    </ul>
-                                </div>
-                                <div class="timeline-item page-break-inside-avoid">
-                                    <h3 class="text-lg sm:text-xl font-semibold">Software Developer</h3>
-                                    <p class="text-sm font-medium opacity-80">Innovate Solutions Ltd. <span class="fira-code text-xs opacity-70">| Jun 2017 – Dec 2019</span></p>
-                                    <ul class="list-disc list-inside mt-2 text-sm space-y-1.5 leading-relaxed opacity-90 pl-1">
-                                        <li>Developed full-stack web apps for B2B clients (PHP/Laravel, Vue.js, MySQL).</li>
-                                        <li>Designed and implemented secure RESTful APIs for mobile applications.</li>
-                                        <li>Contributed to 5+ major client projects in an Agile (Scrum) environment.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </section>
+                <div class="bg-white p-8 rounded-xl shadow-lg card-hover">
+                     <img src="https://placehold.co/600x400/A78BFA/FFFFFF?text=Designer+CV" alt="Graphic Designer CV Preview" class="w-full h-48 object-cover rounded-lg mb-6" onerror="this.src='https://placehold.co/600x400/CCCCCC/FFFFFF?text=Image+Not+Found'">
+                    <h3 class="text-2xl font-semibold mb-3 text-purple-700 dark:text-purple-400">For the Graphic Designer</h3>
+                    <p class="text-gray-600 mb-4">
+                        Visually stunning templates that let your creativity shine. Emphasize your portfolio and design skills.
+                    </p>
+                    <a href="cv/graphic-designer.html" class="text-purple-600 hover:text-purple-800 dark:text-purple-400 dark:hover:text-purple-300 font-medium inline-flex items-center">
+                        View Designer Templates &rarr;
+                    </a>
+                </div>
 
-                        <section class="projects-section">
-                             <div class="section-title-container">
-                                <h2 class="section-title fira-code"><span class="section-title-bracket">&lt;/</span><span class="section-title-text">key_projects</span><span class="section-title-bracket">&gt;</span></h2>
-                                <div class="section-title-line"></div>
-                            </div>
-                            <div class="space-y-8">
-                                <div class="timeline-item page-break-inside-avoid">
-                                    <h3 class="text-lg sm:text-xl font-semibold">Project Discovery Platform (getprojects.org)</h3>
-                                    <p class="text-xs fira-code opacity-70 mt-0.5">React, Node.js, Python, PostgreSQL, Elasticsearch</p>
-                                    <p class="text-sm mt-2 leading-relaxed opacity-90">
-                                        Architected and led development of the GetProjects.org platform, featuring user auth, project versioning, peer-review workflows, and a recommendation engine.
-                                    </p>
-                                    <a href="https://getprojects.org/platform" target="_blank" rel="noopener noreferrer" class="text-xs font-medium hover:opacity-80 inline-block mt-1 opacity-75">View Details &rarr;</a>
-                                </div>
-                                <div class="timeline-item page-break-inside-avoid">
-                                    <h3 class="text-lg sm:text-xl font-semibold">OS Contribution Analytics Dashboard</h3>
-                                    <p class="text-xs fira-code opacity-70 mt-0.5">Next.js, Chart.js, GitHub API, Vercel</p>
-                                    <p class="text-sm mt-2 leading-relaxed opacity-90">
-                                        Interactive dashboard visualizing open-source project contributions, using GitHub API data and Chart.js for analytics.
-                                    </p>
-                                     <a href="https://getprojects.org/tools/dashboard" target="_blank" rel="noopener noreferrer" class="text-xs font-medium hover:opacity-80 inline-block mt-1 opacity-75">Explore Demo &rarr;</a>
-                                </div>
-                            </div>
-                        </section>
-                    </main>
-
-                    <aside class="cv-sidebar-area md:col-span-2 mt-12 md:mt-0 space-y-10">
-                        <section class="contact-sidebar-section">
-                            <div class="section-title-container">
-                                <h2 class="section-title fira-code"><span class="section-title-bracket">&lt;/</span><span class="section-title-text">contact_info</span><span class="section-title-bracket">&gt;</span></h2>
-                                <div class="section-title-line"></div>
-                            </div>
-                            <div class="space-y-2 text-xs opacity-90">
-                                <p class="contact-item flex items-center"><svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg><a href="mailto:contact@getprojects.org">contact@getprojects.org</a></p>
-                                <p class="contact-item flex items-center"><svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.308 1.154a11.042 11.042 0 005.516 5.516l1.154-2.308a1 1 0 011.21-.502l4.493 1.498A1 1 0 0119 12.72V16a2 2 0 01-2 2h-1C9.716 18 3 11.284 3 5z"></path></svg><span>(123) 456-7890</span></p>
-                                <p class="contact-item flex items-center"><svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg><a href="https://getprojects.org" target="_blank" rel="noopener noreferrer">getprojects.org</a></p>
-                                <p class="social-link flex items-center mt-1"><svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><a href="https://github.com/GetProjectsIdea" target="_blank">GitHub/GetProjectsIdea</a></p>
-                                <p class="social-link flex items-center"><svg class="icon" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg><a href="https://linkedin.com/company/14494472" target="_blank">LinkedIn/GetProjects</a></p>
-                            </div>
-                        </section>
-                        
-                        <section class="skills-sidebar-section">
-                            <div class="section-title-container">
-                                <h2 class="section-title fira-code"><span class="section-title-bracket">&lt;/</span><span class="section-title-text">skills</span><span class="section-title-bracket">&gt;</span></h2>
-                                <div class="section-title-line"></div>
-                            </div>
-                            <div>
-                                <h3 class="sidebar-skill-category">Languages</h3>
-                                <ul class="list-none space-y-1"><li class="sidebar-skill-item">JavaScript (ESNext), Python, PHP, SQL, HTML5, CSS3/SCSS</li></ul>
-                            </div>
-                            <div class="mt-3">
-                                <h3 class="sidebar-skill-category">Frameworks & Libraries</h3>
-                                <ul class="list-none space-y-1"><li class="sidebar-skill-item">React, Next.js, Node.js, Express, Django, Laravel, Tailwind CSS, jQuery, Vue.js (exposure)</li></ul>
-                            </div>
-                             <div class="mt-3">
-                                <h3 class="sidebar-skill-category">Databases</h3>
-                                <ul class="list-none space-y-1"><li class="sidebar-skill-item">PostgreSQL, MySQL, MongoDB</li></ul>
-                            </div>
-                            <div class="mt-3">
-                                <h3 class="sidebar-skill-category">Tools & Platforms</h3>
-                                 <div class="flex flex-wrap gap-1.5 mt-1">
-                                    <span class="skill-tag">Git & GitHub</span><span class="skill-tag">Docker</span><span class="skill-tag">AWS</span>
-                                    <span class="skill-tag">CI/CD</span><span class="skill-tag">Agile/Scrum</span><span class="skill-tag">JIRA</span>
-                                    <span class="skill-tag">VS Code</span><span class="skill-tag">Linux</span><span class="skill-tag">Webpack</span>
-                                </div>
-                            </div>
-                        </section>
-
-                        <section class="education-section page-break-inside-avoid">
-                            <div class="section-title-container">
-                                <h2 class="section-title fira-code"><span class="section-title-bracket">&lt;/</span><span class="section-title-text">education</span><span class="section-title-bracket">&gt;</span></h2>
-                                <div class="section-title-line"></div>
-                            </div>
-                            <div class="space-y-3">
-                                <div>
-                                    <h3 class="text-sm font-semibold">Master of Computer Applications (MCA)</h3>
-                                    <p class="text-xs opacity-80">Tech University India <span class="fira-code opacity-70">| 2015 – 2017</span></p>
-                                    <p class="text-xs mt-0.5 opacity-70">Gold Medalist; Thesis on Scalable Web Architectures.</p>
-                                </div>
-                                <div>
-                                    <h3 class="text-sm font-semibold">B.Sc. Computer Science</h3>
-                                    <p class="text-xs opacity-80">City College of Science <span class="fira-code opacity-70">| 2012 – 2015</span></p>
-                                    <p class="text-xs mt-0.5 opacity-70">First Class Honours; Project: Online Library System.</p>
-                                </div>
-                            </div>
-                        </section>
-
-                        <section class="certifications-section page-break-inside-avoid">
-                            <div class="section-title-container">
-                                <h2 class="section-title fira-code"><span class="section-title-bracket">&lt;/</span><span class="section-title-text">certifications</span><span class="section-title-bracket">&gt;</span></h2>
-                                <div class="section-title-line"></div>
-                            </div>
-                            <ul class="list-none text-xs space-y-1 opacity-90">
-                                <li>AWS Certified Developer – Associate (2022)</li>
-                                <li>Certified ScrumMaster (CSM) (2021)</li>
-                            </ul>
-                        </section>
-                    </aside>
+                <div class="bg-white p-8 rounded-xl shadow-lg card-hover">
+                    <img src="https://placehold.co/600x400/FBBF24/FFFFFF?text=Marketing+CV" alt="Marketing Specialist CV Preview" class="w-full h-48 object-cover rounded-lg mb-6" onerror="this.src='https://placehold.co/600x400/CCCCCC/FFFFFF?text=Image+Not+Found'">
+                    <h3 class="text-2xl font-semibold mb-3 text-amber-700 dark:text-amber-400">For the Marketing Specialist</h3>
+                    <p class="text-gray-600 mb-4">
+                        Highlight your campaign successes, strategic thinking, and digital tool proficiency. Results-oriented designs.
+                    </p>
+                    <a href="cv/marketing-specialist.html" class="text-amber-600 hover:text-amber-800 dark:text-amber-400 dark:hover:text-amber-300 font-medium inline-flex items-center">
+                        View Marketing Templates &rarr;
+                    </a>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <footer class="main-footer text-center py-6 mt-4 border-t no-print">
-        <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="mb-3 space-x-4">
-                <a href="https://getprojects.org/terms" target="_blank" class="text-xs hover:opacity-80">Terms</a>
-                <a href="https://getprojects.org/privacy" target="_blank" class="text-xs hover:opacity-80">Privacy</a>
-                <a href="https://getprojects.org/" target="_blank" class="text-xs hover:opacity-80">GetProjects.org</a>
-            </div>
-            <p class="text-xs opacity-70">
-                &copy; <span id="currentYear"></span> GetProjects.org. All Rights Reserved.
+    <section class="py-16 md:py-24 bg-indigo-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-6 text-gray-800">Craft Your CV by Skill</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+                Select the skills you want to highlight. Our templates adapt to showcase your unique expertise.
             </p>
-            <p class="text-xxs mt-1 opacity-50"> CV Template by GetProjects.org.
-            </p>
+            <div id="skillsContainer" class="flex flex-wrap justify-center items-center gap-3 md:gap-4">
+                </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-gray-300 py-12 dark:bg-gray-950">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; <span id="currentYear"></span> cv.getprojects.org. All rights reserved.</p>
+            <p class="text-sm mt-2">Designed to help you land your dream job.</p>
         </div>
     </footer>
 
     <script>
-        // --- Theme Toggle Functionality ---
-        const themeToggle = document.getElementById('themeToggle');
-        const htmlElement = document.documentElement;
-        const themeIconSun = document.getElementById('themeIconSun');
-        const themeIconMoon = document.getElementById('themeIconMoon');
+        // Dynamically set the current year in the footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-        function applyTheme() {
-            const isDarkMode = localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
-            htmlElement.classList.toggle('dark', isDarkMode);
-            if(themeIconSun) themeIconSun.style.display = isDarkMode ? 'none' : 'block';
-            if(themeIconMoon) themeIconMoon.style.display = isDarkMode ? 'block' : 'none';
-        }
-        applyTheme();
-        if (themeToggle) {
-            themeToggle.addEventListener('click', () => {
-                const isDark = htmlElement.classList.toggle('dark');
-                localStorage.setItem('theme', isDark ? 'dark' : 'light');
-                applyTheme();
-            });
+        // Skills list
+        const skills = [
+            // Design Skills
+            "UI Design", "UX Design", "Graphic Design", "Web Design", "Mobile App Design",
+            "Illustration", "Logo Design", "Branding", "Typography", "Color Theory",
+            "Figma", "Adobe XD", "Sketch", "Photoshop", "Illustrator", "InDesign",
+            "User Research", "Wireframing", "Prototyping", "Visual Communication",
+            "Interaction Design", "Motion Graphics", "After Effects", "Premiere Pro",
+            "Canva", "Blender", "3D Modeling", "Print Design", "Layout Design", "Photo Editing",
+            // Developer Skills
+            "HTML5", "CSS3", "JavaScript", "React.js", "Angular", "Vue.js", "Node.js",
+            "Python", "Java", "C#", "PHP", "Ruby on Rails", "SQL", "NoSQL", "MongoDB",
+            "REST APIs", "GraphQL", "Git", "GitHub", "Docker", "Kubernetes", "AWS",
+            "Azure", "Google Cloud", "Responsive Design", "Web Performance", "Cybersecurity",
+            "Full-Stack Development", "Front-End Development", "Back-End Development", "DevOps",
+            // Marketing & Content Skills
+            "SEO", "SEM", "Content Writing", "Copywriting", "Social Media Marketing",
+            "Email Marketing", "Digital Strategy", "Content Creation", "Google Analytics",
+            "HubSpot", "Salesforce", "Market Research", "Brand Management",
+            // Other Professional Skills
+            "Project Management", "Agile Methodologies", "Scrum", "Data Analysis",
+            "Data Visualization", "Business Analysis", "Communication", "Problem Solving",
+            "Critical Thinking", "Teamwork", "Leadership", "Public Speaking", "Microsoft Office Suite"
+        ];
+
+        const skillsContainer = document.getElementById('skillsContainer');
+        const skillColors = [
+            'bg-indigo-500 hover:bg-indigo-600', 'bg-purple-500 hover:bg-purple-600',
+            'bg-pink-500 hover:bg-pink-600', 'bg-sky-500 hover:bg-sky-600',
+            'bg-teal-500 hover:bg-teal-600', 'bg-emerald-500 hover:bg-emerald-600',
+            'bg-rose-500 hover:bg-rose-600'
+        ];
+        // Dark mode equivalents for skill buttons
+        const skillDarkColors = [
+            'dark:bg-indigo-600 dark:hover:bg-indigo-700', 'dark:bg-purple-600 dark:hover:bg-purple-700',
+            'dark:bg-pink-600 dark:hover:bg-pink-700', 'dark:bg-sky-600 dark:hover:bg-sky-700',
+            'dark:bg-teal-600 dark:hover:bg-teal-700', 'dark:bg-emerald-600 dark:hover:bg-emerald-700',
+            'dark:bg-rose-600 dark:hover:bg-rose-700'
+        ];
+
+        // Function to create a URL-friendly slug from a skill name
+        function slugify(text) {
+            return text.toString().toLowerCase()
+                .replace(/\s+/g, '-')           // Replace spaces with -
+                .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+                .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+                .replace(/^-+/, '')             // Trim - from start of text
+                .replace(/-+$/, '');            // Trim - from end of text
         }
 
-        // --- Dynamic Year for Footer ---
-        const currentYearElement = document.getElementById('currentYear');
-        if (currentYearElement) {
-            currentYearElement.textContent = new Date().getFullYear();
-        }
+        skills.forEach((skill, index) => {
+            const button = document.createElement('a');
+            const skillSlug = slugify(skill);
+            // Construct the link to the specific CV template page
+            button.href = `cv/${skillSlug}.html`; // e.g., cv/full-stack-development.html
+            button.textContent = skill;
+            const colorClass = skillColors[index % skillColors.length];
+            const darkColorClass = skillDarkColors[index % skillDarkColors.length];
+            button.className = `skill-button text-white font-medium py-2 px-4 md:py-2.5 md:px-5 rounded-full shadow-md text-sm md:text-base ${colorClass} ${darkColorClass}`;
+            skillsContainer.appendChild(button);
+        });
 
-        // --- Line Number Gutter Generation ---
-        // COMMENT: This script generates decorative line numbers.
-        const gutter = document.getElementById('lineNumberGutter');
-        if (gutter) {
-            // Determine a reasonable number of lines to show, e.g., based on typical content height or a fixed large number.
-            // For a decorative effect, a fixed number might be simpler.
-            const numberOfLines = 70; // Adjust as needed for visual balance
-            for (let i = 1; i <= numberOfLines; i++) {
-                const span = document.createElement('span');
-                span.textContent = i;
-                gutter.appendChild(span);
+        // Theme Toggle Functionality
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        // Function to apply theme
+        function applyTheme(isDark) {
+            if (isDark) {
+                document.documentElement.classList.add('dark');
+                themeToggleLightIcon.classList.remove('hidden');
+                themeToggleDarkIcon.classList.add('hidden');
+            } else {
+                document.documentElement.classList.remove('dark');
+                themeToggleDarkIcon.classList.remove('hidden');
+                themeToggleLightIcon.classList.add('hidden');
             }
         }
+
+        // Check for saved theme preference or system preference
+        let isDarkMode = localStorage.getItem('color-theme') === 'dark' ||
+                         (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+        // Apply initial theme
+        applyTheme(isDarkMode);
+
+        themeToggleBtn.addEventListener('click', function() {
+            // toggle
+            isDarkMode = !isDarkMode;
+            localStorage.setItem('color-theme', isDarkMode ? 'dark' : 'light');
+            applyTheme(isDarkMode);
+        });
+
+        // Update hero button link to point to the CV showcase section
+        const exploreButton = document.querySelector('.hero-gradient a[href="#templates"]');
+        if(exploreButton) {
+            exploreButton.setAttribute('href', '#cv-showcase');
+        }
+
     </script>
+
 </body>
 </html>
