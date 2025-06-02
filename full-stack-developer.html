@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en" class="dark"> <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Full Stack Developer CV | CV.GetProjects.org</title>
+    <meta name="description" content="A free HTML full stack developer CV template, meticulously styled to match a modern, coder-centric aesthetic. Features line numbers, dark theme, and clear layout.">
+    <meta name="keywords" content="full stack developer cv, coder resume, html cv template, free resume, software engineer cv, dark theme cv, line numbers cv, getprojects, cv.getprojects.org">
+    <meta name="author" content="GetProjects.org">
+    <link rel="canonical" href="https://cv.getprojects.org/">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-weight: 400;
+        }
+        .fira-code { 
+            font-family: 'Fira Code', monospace;
+            font-weight: 500;
+        }
+
+        /* Theme Variables - Inspired by the reference image */
+        :root {
+            /* Light Theme (Secondary) */
+            --bg-color-light: #eef0f2; /* Lighter gray background */
+            --text-color-light: #212529; /* Darker text for readability */
+            --card-bg-color-light: #ffffff; /* White card */
+            --line-gutter-bg-light: #f0f2f4;
+            --line-gutter-text-light: #adb5bd;
+            --accent-color-light: #007bff; /* Standard bootstrap blue */
+            --accent-hover-light: #0056b3;
+            --section-title-text-light: #212529;
+            --section-title-bracket-light: var(--accent-color-light);
+            --section-line-light: #ced4da; /* Lighter border */
+            --skill-tag-bg-light: #e9ecef;
+            --skill-tag-text-light: #495057;
+            --timeline-dot-bg-light: var(--accent-color-light);
+            --timeline-line-bg-light: #ced4da;
+            --header-footer-bg-light: #ffffff;
+            --header-footer-text-light: #343a40;
+            --shadow-light: rgba(0, 0, 0, 0.1);
+
+            /* Dark Theme (Primary - matching reference) */
+            --bg-color-dark: #0a0c0f; /* Even darker background */
+            --text-color-dark: #adbac7; /* Slightly adjusted for better contrast on very dark bg */
+            --card-bg-color-dark: #161a20; /* Main content area background */
+            --line-gutter-bg-dark: #0d1117; /* Gutter background, same as page bg or slightly different */
+            --line-gutter-text-dark: #414a56; /* Dimmed line numbers */
+            --accent-color-dark: #388bfd; /* Adjusted blue from reference */
+            --accent-hover-dark: #58a6ff;
+            --section-title-text-dark: #c9d1d9; /* Main text color for section titles */
+            --section-title-bracket-dark: var(--accent-color-dark); /* Accent for brackets */
+            --section-line-dark: #2a3038; /* More subtle line */
+            --skill-tag-bg-dark: #1c2128;
+            --skill-tag-text-dark: #adbac7;
+            --timeline-dot-bg-dark: var(--accent-color-dark);
+            --timeline-line-bg-dark: #2a3038;
+            --header-footer-bg-dark: #161a20;
+            --header-footer-text-dark: #adbac7;
+            --shadow-dark: rgba(0, 0, 0, 0.5); /* Darker shadow for depth */
+        }
+
+        /* Apply Dark Theme by default */
+        html.dark body { background-color: var(--bg-color-dark); color: var(--text-color-dark); }
+        html.dark .cv-outer-wrapper { background-color: var(--card-bg-color-dark); } /* Main card background */
+        html.dark .line-number-gutter { background-color: var(--line-gutter-bg-dark); color: var(--line-gutter-text-dark); }
+        html.dark .section-title-text { color: var(--section-title-text-dark); }
+        html.dark .section-title-bracket { color: var(--section-title-bracket-dark); }
+        html.dark .section-title-line { border-color: var(--section-line-dark); }
+        html.dark a { color: var(--accent-color-dark); }
+        html.dark a:hover { color: var(--accent-hover-dark); }
+        html.dark .skill-tag { background-color: var(--skill-tag-bg-dark); color: var(--skill-tag-text-dark); border: 1px solid var(--section-line-dark);}
+        html.dark .timeline-item::before { background-color: var(--timeline-dot-bg-dark); }
+        html.dark .timeline-item:not(:last-child)::after { background-color: var(--timeline-line-bg-dark); }
+        html.dark .main-nav { background-color: var(--header-footer-bg-dark); color: var(--header-footer-text-dark); box-shadow: 0 1px 0px var(--section-line-dark); }
+        html.dark .main-footer { background-color: var(--header-footer-bg-dark); color: var(--header-footer-text-dark); border-top: 1px solid var(--section-line-dark); }
+        html.dark .cv-page-header .cv-brand { color: var(--accent-color-dark); }
+        html.dark .cv-page-header .name { color: #e6edf3; } /* Brighter white for name */
+        html.dark .cv-page-header .title { color: var(--text-color-dark); opacity: 0.7; }
+        html.dark .sidebar-section-title { color: var(--accent-color-dark); } /* Using accent for sidebar titles */
+        html.dark .sidebar-skill-category { color: #e6edf3; } /* Brighter for category */
+        html.dark .sidebar-skill-item { color: var(--text-color-dark); opacity: 0.85; }
+
+
+        /* Apply Light Theme when .dark class is NOT present */
+        html:not(.dark) body { background-color: var(--bg-color-light); color: var(--text-color-light); }
+        html:not(.dark) .cv-outer-wrapper { background-color: var(--card-bg-color-light); }
+        html:not(.dark) .line-number-gutter { background-color: var(--line-gutter-bg-light); color: var(--line-gutter-text-light); }
+        html:not(.dark) .section-title-text { color: var(--section-title-text-light); }
+        html:not(.dark) .section-title-bracket { color: var(--accent-color-light); }
+        html:not(.dark) .section-title-line { border-color: var(--section-line-light); }
+        html:not(.dark) a { color: var(--accent-color-light); }
+        html:not(.dark) a:hover { color: var(--accent-hover-light); }
+        html:not(.dark) .skill-tag { background-color: var(--skill-tag-bg-light); color: var(--skill-tag-text-light); border: 1px solid transparent;}
+        html:not(.dark) .timeline-item::before { background-color: var(--timeline-dot-bg-light); }
+        html:not(.dark) .timeline-item:not(:last-child)::after { background-color: var(--timeline-line-bg-light); }
+        html:not(.dark) .main-nav { background-color: var(--header-footer-bg-light); color: var(--header-footer-text-light); box-shadow: 0 2px 4px var(--shadow-light); }
+        html:not(.dark) .main-footer { background-color: var(--header-footer-bg-light); color: var(--header-footer-text-light); border-top: 1px solid var(--section-line-light); }
+        html:not(.dark) .cv-page-header .cv-brand { color: var(--accent-color-light); }
+        html:not(.dark) .cv-page-header .name { color: var(--text-color-light); }
+        html:not(.dark) .cv-page-header .title { color: var(--text-color-light); opacity: 0.8; }
+        html:not(.dark) .sidebar-section-title { color: var(--accent-color-light); }
+        html:not(.dark) .sidebar-skill-category { color: var(--text-color-light); }
+        html:not(.dark) .sidebar-skill-item { color: var(--text-color-light); opacity: 0.85; }
+
+
+        /* General Reusable Styles */
+        .icon { width: 1.1rem; height: 1.1rem; margin-right: 0.6rem; display: inline-block; vertical-align: middle; opacity: 0.7; }
+        .section-title-container { margin-bottom: 1.5rem; margin-top: 2.2rem; }
+        .section-title-container:first-child { margin-top: 0; }
+        .section-title { /* For </section_name> style */
+            font-size: 1.6rem; /* Increased size */
+            font-weight: 600; /* Bolder Fira Code */
+            letter-spacing: 0.5px;
+        }
+        .section-title-line { border-bottom-width: 1px; margin-top: 0.4rem; opacity: 0.7; }
+
+        .timeline-item { position: relative; padding-left: 2.2rem; margin-bottom: 1.8rem; }
+        .timeline-item::before { content: ''; position: absolute; left: 0.3rem; top: 0.45rem; width: 0.9rem; height: 0.9rem; border-radius: 9999px; }
+        .timeline-item:not(:last-child)::after { content: ''; position: absolute; left: calc(0.3rem + 0.45rem - 1px); top: calc(0.45rem + 0.9rem + 0.2rem); bottom: -1.8rem; width: 2px; }
+        
+        .skill-tag { padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; display: inline-block; margin: 0.2rem; }
+        .sidebar-section-title { font-size: 1.15rem; font-weight: 600; margin-bottom: 0.8rem; }
+        .sidebar-skill-category { font-weight: 600; margin-top: 1rem; margin-bottom: 0.3rem; font-size:0.9rem; opacity: 0.9;}
+        .sidebar-skill-item { font-size: 0.85rem; line-height: 1.65; }
+
+        /* Line Number Gutter */
+        .cv-page-wrapper { display: flex; }
+        .line-number-gutter {
+            width: 40px; /* Adjust width as needed */
+            padding: 1.5rem 0; /* Match top/bottom padding of main content */
+            text-align: right;
+            font-size: 0.75rem; /* text-xs */
+            line-height: 1.6; /* Match content line height */
+            user-select: none; /* Prevent selection */
+            flex-shrink: 0; /* Prevent shrinking */
+        }
+        .line-number-gutter span { display: block; padding-right: 10px; }
+
+
+        /* Print specific styles */
+        @media print {
+            html, body { background-color: #fff !important; color: #000 !important; }
+            html.dark body { /* Override dark theme for print */
+                --bg-color-dark: #ffffff; --text-color-dark: #000000; --card-bg-color-dark: #ffffff;
+                --accent-color-dark: #0000ee; --section-title-text-dark: #000000;
+                --section-title-bracket-dark: #000000; --section-line-dark: #cccccc;
+                --skill-tag-bg-dark: #eeeeee; --skill-tag-text-dark: #000000;
+                --timeline-dot-bg-dark: #000000; --timeline-line-bg-dark: #aaaaaa;
+            }
+            body { font-size: 9pt; margin: 0; padding: 0; font-family: 'Times New Roman', Times, serif; }
+            body, .fira-code { font-family: 'Times New Roman', Times, serif; }
+            .no-print { display: none !important; }
+            .cv-page-wrapper { display: block !important; } /* Stack line numbers and content for print */
+            .line-number-gutter { display: none !important; } /* Hide line numbers in print */
+
+            .cv-container-wrapper { padding: 1.5cm 1.5cm 1cm 1.5cm !important; }
+            .cv-outer-wrapper { max-width: 100% !important; box-shadow: none !important; margin: 0 !important; padding: 0 !important; }
+            
+            .md\:grid-cols-layout { display: block !important; } /* Disable main grid for print */
+            .cv-main-content-area, .cv-sidebar-area { width: 100% !important; padding: 0 !important; }
+
+            .page-break-before { page-break-before: always; }
+            .page-break-inside-avoid { page-break-inside: avoid; }
+
+            .section-title-container { margin-top: 1.2rem; margin-bottom: 0.8rem; }
+            .section-title { font-size: 1.2rem; font-weight: bold; }
+            .section-title-bracket, .section-title-text { color: #000 !important; }
+            .section-title-line { border-color: #000 !important; }
+            
+            a { color: #0000ee !important; text-decoration: underline !important; }
+            .skill-tag { border: 1px solid #ccc; padding: 0.1rem 0.4rem; font-size: 0.7rem; background-color: #eee !important; color: #000 !important; }
+            
+            .cv-page-header .cv-brand { color: #000 !important; font-size: 1.3rem !important; }
+            .cv-page-header .name { font-size: 1.8rem !important; color: #000 !important; }
+            .cv-page-header .title { font-size: 1.1rem !important; color: #000 !important; opacity: 1; }
+            .sidebar-section-title { color: #000 !important; font-size: 1rem !important; font-weight: bold; }
+            .sidebar-skill-category { color: #000 !important; font-size: 0.85rem !important; font-weight: bold; }
+            .sidebar-skill-item { color: #000 !important; font-size: 0.8rem !important; opacity: 1; }
+
+            .timeline-item::before { background-color: #000 !important; }
+            .timeline-item:not(:last-child)::after { background-color: #aaa !important; }
+            ul { padding-left: 1.2rem; }
+            .contact-item svg.icon { display: none; }
+            .contact-item a, .contact-item span { margin-left: 0 !important; }
+        }
+    </style>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9704521076577901"
+     crossorigin="anonymous"></script>
+
+</head>
+<body class="leading-relaxed text-base">
+
+    <nav class="main-nav sticky top-0 z-50 no-print">
+        <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+            <a href="https://cv.getprojects.org/" class="text-xl font-bold">CV Home</a>
+            <div class="space-x-4">
+                <a href="https://getprojects.org/" target="_blank" class="hover:opacity-80">Main Home</a>
+                <a href="https://getprojects.org/contact" target="_blank" class="hover:opacity-80">Contact</a>
+                <a href="https://getprojects.org/about" target="_blank" class="hover:opacity-80">About</a>
+            </div>
+            <div class="flex items-center space-x-3">
+                <button id="themeToggle" title="Toggle Theme" class="p-2 rounded-md hover:opacity-70">
+                    <svg id="themeIconSun" class="icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m8.66-12.66l-.707.707M5.05 18.95l-.707.707M21 12h-1M4 12H3m15.66 6.95l-.707-.707M6.46 5.05l-.707-.707"></path><circle cx="12" cy="12" r="5"></circle></svg>
+                    <svg id="themeIconMoon" class="icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="cv-container-wrapper container mx-auto max-w-6xl my-8">
+        <div class="cv-page-wrapper">
+            <div id="lineNumberGutter" class="line-number-gutter no-print">
+                </div>
+
+            <div class="cv-outer-wrapper flex-grow shadow-2xl p-8 sm:p-12 lg:p-16">
+
+                <header class="cv-page-header mb-12 text-center sm:text-left">
+                    <div class="fira-code text-3xl sm:text-4xl font-bold cv-brand mb-2">&lt; CV /&gt;</div>
+                    <h1 class="name text-4xl sm:text-5xl font-bold tracking-tight leading-tight">Get Projects</h1> <p class="title text-xl sm:text-2xl font-normal mt-1 fira-code">( Professional_Title: Full Stack Developer )</p> </header>
+
+                <section class="summary-section mb-12">
+                    <div class="section-title-container">
+                        <h2 class="section-title fira-code"><span class="section-title-bracket">&lt;/</span><span class="section-title-text">summary</span><span class="section-title-bracket">&gt;</span></h2>
+                        <div class="section-title-line"></div>
+                    </div>
+                    <p class="text-sm sm:text-base leading-relaxed opacity-90">
+                        Dynamic and innovative Full Stack Developer with over 5 years of dedicated experience in architecting, developing, and managing cutting-edge web applications and enterprise-level software solutions. Deeply committed to the open-source philosophy, actively contributing to and leading community initiatives via getprojects.org. Adept at transforming complex user requirements and technical specifications into high-performing, scalable, and intuitive products.
+                    </p>
+                </section>
+
+                <div class="md:grid md:grid-cols-5 md:gap-x-10 lg:gap-x-12">
+                    <main class="cv-main-content-area md:col-span-3 space-y-12">
+                        <section class="experience-section">
+                            <div class="section-title-container">
+                                <h2 class="section-title fira-code"><span class="section-title-bracket">&lt;/</span><span class="section-title-text">work_experience</span><span class="section-title-bracket">&gt;</span></h2>
+                                <div class="section-title-line"></div>
+                            </div>
+                            <div class="space-y-8">
+                                <div class="timeline-item page-break-inside-avoid">
+                                    <h3 class="text-lg sm:text-xl font-semibold">Senior Developer & Community Lead</h3>
+                                    <p class="text-sm font-medium opacity-80">GetProjects.org  <span class="fira-code text-xs opacity-70">| Jan 2020 – Present</span></p>
+                                    <ul class="list-disc list-inside mt-2 text-sm space-y-1.5 leading-relaxed opacity-90 pl-1">
+                                        <li>Led architecture of getprojects.org, focusing on scalability for 10k+ users.</li>
+                                        <li>Engineered project submission & review systems (Node.js, React, PostgreSQL).</li>
+                                        <li>Managed a distributed team of 5+ volunteer developers (Agile, JIRA, GitHub).</li>
+                                        <li>Developed Python recommendation engine, boosting downloads by 25%.</li>
+                                        <li>Established CI/CD pipelines (GitHub Actions, Docker), reducing deployment times.</li>
+                                    </ul>
+                                </div>
+                                <div class="timeline-item page-break-inside-avoid">
+                                    <h3 class="text-lg sm:text-xl font-semibold">Software Developer</h3>
+                                    <p class="text-sm font-medium opacity-80">Innovate Solutions Ltd. <span class="fira-code text-xs opacity-70">| Jun 2017 – Dec 2019</span></p>
+                                    <ul class="list-disc list-inside mt-2 text-sm space-y-1.5 leading-relaxed opacity-90 pl-1">
+                                        <li>Developed full-stack web apps for B2B clients (PHP/Laravel, Vue.js, MySQL).</li>
+                                        <li>Designed and implemented secure RESTful APIs for mobile applications.</li>
+                                        <li>Contributed to 5+ major client projects in an Agile (Scrum) environment.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="projects-section">
+                             <div class="section-title-container">
+                                <h2 class="section-title fira-code"><span class="section-title-bracket">&lt;/</span><span class="section-title-text">key_projects</span><span class="section-title-bracket">&gt;</span></h2>
+                                <div class="section-title-line"></div>
+                            </div>
+                            <div class="space-y-8">
+                                <div class="timeline-item page-break-inside-avoid">
+                                    <h3 class="text-lg sm:text-xl font-semibold">Project Discovery Platform (getprojects.org)</h3>
+                                    <p class="text-xs fira-code opacity-70 mt-0.5">React, Node.js, Python, PostgreSQL, Elasticsearch</p>
+                                    <p class="text-sm mt-2 leading-relaxed opacity-90">
+                                        Architected and led development of the GetProjects.org platform, featuring user auth, project versioning, peer-review workflows, and a recommendation engine.
+                                    </p>
+                                    <a href="https://getprojects.org/platform" target="_blank" rel="noopener noreferrer" class="text-xs font-medium hover:opacity-80 inline-block mt-1 opacity-75">View Details &rarr;</a>
+                                </div>
+                                <div class="timeline-item page-break-inside-avoid">
+                                    <h3 class="text-lg sm:text-xl font-semibold">OS Contribution Analytics Dashboard</h3>
+                                    <p class="text-xs fira-code opacity-70 mt-0.5">Next.js, Chart.js, GitHub API, Vercel</p>
+                                    <p class="text-sm mt-2 leading-relaxed opacity-90">
+                                        Interactive dashboard visualizing open-source project contributions, using GitHub API data and Chart.js for analytics.
+                                    </p>
+                                     <a href="https://getprojects.org/tools/dashboard" target="_blank" rel="noopener noreferrer" class="text-xs font-medium hover:opacity-80 inline-block mt-1 opacity-75">Explore Demo &rarr;</a>
+                                </div>
+                            </div>
+                        </section>
+                    </main>
+
+                    <aside class="cv-sidebar-area md:col-span-2 mt-12 md:mt-0 space-y-10">
+                        <section class="contact-sidebar-section">
+                            <div class="section-title-container">
+                                <h2 class="section-title fira-code"><span class="section-title-bracket">&lt;/</span><span class="section-title-text">contact_info</span><span class="section-title-bracket">&gt;</span></h2>
+                                <div class="section-title-line"></div>
+                            </div>
+                            <div class="space-y-2 text-xs opacity-90">
+                                <p class="contact-item flex items-center"><svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg><a href="mailto:contact@getprojects.org">contact@getprojects.org</a></p>
+                                <p class="contact-item flex items-center"><svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.308 1.154a11.042 11.042 0 005.516 5.516l1.154-2.308a1 1 0 011.21-.502l4.493 1.498A1 1 0 0119 12.72V16a2 2 0 01-2 2h-1C9.716 18 3 11.284 3 5z"></path></svg><span>(123) 456-7890</span></p>
+                                <p class="contact-item flex items-center"><svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg><a href="https://getprojects.org" target="_blank" rel="noopener noreferrer">getprojects.org</a></p>
+                                <p class="social-link flex items-center mt-1"><svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><a href="https://github.com/GetProjectsIdea" target="_blank">GitHub/GetProjectsIdea</a></p>
+                                <p class="social-link flex items-center"><svg class="icon" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg><a href="https://linkedin.com/company/14494472" target="_blank">LinkedIn/GetProjects</a></p>
+                            </div>
+                        </section>
+                        
+                        <section class="skills-sidebar-section">
+                            <div class="section-title-container">
+                                <h2 class="section-title fira-code"><span class="section-title-bracket">&lt;/</span><span class="section-title-text">skills</span><span class="section-title-bracket">&gt;</span></h2>
+                                <div class="section-title-line"></div>
+                            </div>
+                            <div>
+                                <h3 class="sidebar-skill-category">Languages</h3>
+                                <ul class="list-none space-y-1"><li class="sidebar-skill-item">JavaScript (ESNext), Python, PHP, SQL, HTML5, CSS3/SCSS</li></ul>
+                            </div>
+                            <div class="mt-3">
+                                <h3 class="sidebar-skill-category">Frameworks & Libraries</h3>
+                                <ul class="list-none space-y-1"><li class="sidebar-skill-item">React, Next.js, Node.js, Express, Django, Laravel, Tailwind CSS, jQuery, Vue.js (exposure)</li></ul>
+                            </div>
+                             <div class="mt-3">
+                                <h3 class="sidebar-skill-category">Databases</h3>
+                                <ul class="list-none space-y-1"><li class="sidebar-skill-item">PostgreSQL, MySQL, MongoDB</li></ul>
+                            </div>
+                            <div class="mt-3">
+                                <h3 class="sidebar-skill-category">Tools & Platforms</h3>
+                                 <div class="flex flex-wrap gap-1.5 mt-1">
+                                    <span class="skill-tag">Git & GitHub</span><span class="skill-tag">Docker</span><span class="skill-tag">AWS</span>
+                                    <span class="skill-tag">CI/CD</span><span class="skill-tag">Agile/Scrum</span><span class="skill-tag">JIRA</span>
+                                    <span class="skill-tag">VS Code</span><span class="skill-tag">Linux</span><span class="skill-tag">Webpack</span>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="education-section page-break-inside-avoid">
+                            <div class="section-title-container">
+                                <h2 class="section-title fira-code"><span class="section-title-bracket">&lt;/</span><span class="section-title-text">education</span><span class="section-title-bracket">&gt;</span></h2>
+                                <div class="section-title-line"></div>
+                            </div>
+                            <div class="space-y-3">
+                                <div>
+                                    <h3 class="text-sm font-semibold">Master of Computer Applications (MCA)</h3>
+                                    <p class="text-xs opacity-80">Tech University India <span class="fira-code opacity-70">| 2015 – 2017</span></p>
+                                    <p class="text-xs mt-0.5 opacity-70">Gold Medalist; Thesis on Scalable Web Architectures.</p>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-semibold">B.Sc. Computer Science</h3>
+                                    <p class="text-xs opacity-80">City College of Science <span class="fira-code opacity-70">| 2012 – 2015</span></p>
+                                    <p class="text-xs mt-0.5 opacity-70">First Class Honours; Project: Online Library System.</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="certifications-section page-break-inside-avoid">
+                            <div class="section-title-container">
+                                <h2 class="section-title fira-code"><span class="section-title-bracket">&lt;/</span><span class="section-title-text">certifications</span><span class="section-title-bracket">&gt;</span></h2>
+                                <div class="section-title-line"></div>
+                            </div>
+                            <ul class="list-none text-xs space-y-1 opacity-90">
+                                <li>AWS Certified Developer – Associate (2022)</li>
+                                <li>Certified ScrumMaster (CSM) (2021)</li>
+                            </ul>
+                        </section>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="main-footer text-center py-6 mt-4 border-t no-print">
+        <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="mb-3 space-x-4">
+                <a href="https://getprojects.org/terms" target="_blank" class="text-xs hover:opacity-80">Terms</a>
+                <a href="https://getprojects.org/privacy" target="_blank" class="text-xs hover:opacity-80">Privacy</a>
+                <a href="https://getprojects.org/" target="_blank" class="text-xs hover:opacity-80">GetProjects.org</a>
+            </div>
+            <p class="text-xs opacity-70">
+                &copy; <span id="currentYear"></span> GetProjects.org. All Rights Reserved.
+            </p>
+            <p class="text-xxs mt-1 opacity-50"> CV Template by GetProjects.org.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // --- Theme Toggle Functionality ---
+        const themeToggle = document.getElementById('themeToggle');
+        const htmlElement = document.documentElement;
+        const themeIconSun = document.getElementById('themeIconSun');
+        const themeIconMoon = document.getElementById('themeIconMoon');
+
+        function applyTheme() {
+            const isDarkMode = localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+            htmlElement.classList.toggle('dark', isDarkMode);
+            if(themeIconSun) themeIconSun.style.display = isDarkMode ? 'none' : 'block';
+            if(themeIconMoon) themeIconMoon.style.display = isDarkMode ? 'block' : 'none';
+        }
+        applyTheme();
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                const isDark = htmlElement.classList.toggle('dark');
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+                applyTheme();
+            });
+        }
+
+        // --- Dynamic Year for Footer ---
+        const currentYearElement = document.getElementById('currentYear');
+        if (currentYearElement) {
+            currentYearElement.textContent = new Date().getFullYear();
+        }
+
+        // --- Line Number Gutter Generation ---
+        // COMMENT: This script generates decorative line numbers.
+        const gutter = document.getElementById('lineNumberGutter');
+        if (gutter) {
+            // Determine a reasonable number of lines to show, e.g., based on typical content height or a fixed large number.
+            // For a decorative effect, a fixed number might be simpler.
+            const numberOfLines = 70; // Adjust as needed for visual balance
+            for (let i = 1; i <= numberOfLines; i++) {
+                const span = document.createElement('span');
+                span.textContent = i;
+                gutter.appendChild(span);
+            }
+        }
+    </script>
+</body>
+</html>
